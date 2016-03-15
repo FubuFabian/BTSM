@@ -1,0 +1,48 @@
+function borderImage = RayCastBordersClas(image,seed,degree)
+
+%figure, imshow(image)
+
+[nRen nCols] = size(image);
+borderImage = zeros(size(image));
+
+x = seed.x;
+y = seed.y;
+
+for t=0:degree:360
+        
+        for i=1:nCols
+            
+            xp = round(i*cosd(t))+1+x;
+            yp = round(i*sind(t))+1+y;
+            
+            if yp>nRen
+                break;
+            elseif yp<1
+                break;
+            end
+            
+            if xp>nCols
+                break;
+            elseif xp<1
+                break;
+            end
+            
+            val = image(yp,xp);
+            if val==0
+                borderImage(yp,xp) = 1;
+                break;
+            end
+            
+        end
+end
+
+
+
+
+
+    
+    
+
+
+    
+    

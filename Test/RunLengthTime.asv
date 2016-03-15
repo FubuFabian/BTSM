@@ -1,0 +1,12 @@
+function [meanTime stdTime] = RunLengthTime(images,descriptor)
+
+nImages = size(images);
+times = zeros(nImages,1);
+
+for i=1:nImages
+    [wtv times[i]] = RunlengthTexture(images{i},descriptor);
+end
+
+
+    
+    
